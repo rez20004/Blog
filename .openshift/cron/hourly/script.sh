@@ -1,0 +1,1 @@
+python $OPENSHIFT_REPO_DIR/manage.py clearsessions

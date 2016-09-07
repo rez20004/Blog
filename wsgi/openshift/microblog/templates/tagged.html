@@ -1,0 +1,6 @@
+{% extends "all.html" %}
+
+{% block content %}
+    <h3>Posty z tagiem <b>{{ tag.name }}</b></h3>
+    {% for art in archive %}{% include "article.html" %}{% endfor %}
+{% endblock %}

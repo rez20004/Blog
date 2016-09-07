@@ -1,0 +1,32 @@
+{% extends "all.html" %}
+
+{% block content %}
+    <h2>Nowy użytkownik</h2><br/>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        <fieldset>
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.username.errors }}
+                <label for="title">Nazwa:</label>
+                {{ form.username }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.email.errors }}
+                <label for="title">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.password1.errors }}
+                <label for="title">Hasło:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.password2.errors }}
+                <label for="title">Hasło jeszcze raz:</label>
+                {{ form.password2 }}
+            </div>
+            <input type="submit" value="ZAŁÓŻ KONTO" style="padding: 5px;" />
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "all.html" %}
+{% block content %}
+    <h2>Najnowsze wpisy</h2>
+    {% for art in lista %}{% include "article.html" %}{% endfor %}
+{% endblock %}

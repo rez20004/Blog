@@ -1,0 +1,20 @@
+ <hr /><h3>{{ art.tytul }}</h3>
+        <a href="{% url 'edit' art.id %}">Edytuj</a><br />
+        <small>{{ art.pub_date }}</small><br />
+        <small><b>Autor:</b> <a href="{% url 'userArticles' art.pub_user.id %}">{{ art.pub_user.username }}</a></small><br />
+        {% if art.mod_date %}
+        <small>edytowany {{ art.mod_date }}</small><br />
+        <small>zmieniony przez: <a href="{% url 'userArticles' art.mod_user.id %}">{{ art.mod_user.username }}</a></small>
+        {% endif %}
+        <br />
+        <div>{{ art.tresc }}</div><br />
+        <small>tagi:
+            {% if art.tag_set.all %}
+            {% for tag in art.tag_set.all %}
+              |  <a href="{% url 'tagged' tag.id %}">{{ tag.name }}</a> |
+            {% endfor %}
+            {% else %}
+                brak
+            {% endif %}
+        </small>
+        <br />

@@ -1,0 +1,20 @@
+{% extends "all.html" %}
+
+{% block content %}
+    <h3>Logowanie</h3><br />
+    <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.username.errors }}
+                <label for="title">Nazwa użytkownika:</label>
+                {{ form.username }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.password.errors }}
+                <label for="title">Hasło:</label>
+                {{ form.password }}
+            </div>
+            <input type="submit" value="ZALOGUJ" style="padding: 5px;" />
+    </form>
+{% endblock %}
